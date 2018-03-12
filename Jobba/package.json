@@ -1,0 +1,30 @@
+{
+  "name": "jobba",
+  "version": "1.0.0",
+  "description": "Jobba is a MERN stack app that was created to help individuals new to the tech industry with job-hunting. Use Jobba to record companies of interest and positions applied for with ease. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codypellom/wdi14-projectiii-jobbo.git"
+  },
+  "keywords": [
+    "jobba"
+  ],
+  "author": "Kodi_Bear",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codypellom/wdi14-projectiii-jobbo/issues"
+  },
+  "homepage": "https://github.com/codypellom/wdi14-projectiii-jobbo#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.9",
+    "morgan": "^1.9.0"
+  }
+}
