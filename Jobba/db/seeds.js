@@ -12,9 +12,9 @@ const PositionsModel = require('./schema/Positions-model');
 
 
 //Connect to MongoDb Here:
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI);
 
-const db = mongoose.connection
+const db = mongoose.connection;
 
 //Here is the errors, or successful connections logger
 db.on('open', () => {
@@ -33,7 +33,7 @@ const CompaniesTest1 = new CompaniesModel({
     positions: "Front-Line, T-A's, Instructor",
     locations: "Atlanta, GA",
     notes: "Applied on January 15th 2018"
-});
+})
 
 const PositionsTest1 = new PositionsModel({
     date: Date.now,
@@ -53,7 +53,7 @@ const BioTest1 = new BioModel ({
 
 //Begin saving the dummyData
 CompaniesModel.remove().then(() => {
-    return CompaniesModel.insert([ CompaniesTest1 ])
+    return CompaniesModel.save([ CompaniesTest1 ])
 }).then(() => {
     console.log('Saved CompaniesTest1')
     db.close()
@@ -64,7 +64,7 @@ CompaniesModel.remove().then(() => {
 
 
 PositionsModel.remove().then(() => {
-    return PositionsModel.insert([ PositionsTest1 ])
+    return PositionsModel.save([ PositionsTest1 ])
 }).then(() => {
   console.log('Saved PositionsTest1')
   db.close()
@@ -75,7 +75,7 @@ PositionsModel.remove().then(() => {
 
 
 BioModel.remove().then(() => {
-    return BioModel.insert([ BioTest1 ])
+    return BioModel.save([ BioTest1 ])
 }).then(() => {
     console.log('Saved BioTest1')
     db.close()
