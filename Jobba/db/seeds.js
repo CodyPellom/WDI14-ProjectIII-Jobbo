@@ -28,26 +28,28 @@ db.on('error', (err) => {
 
 const CompaniesTest1 = new CompaniesModel({
     date: Date.now,
-    title: String,
-    description: String,
-    positions: String,
-    locations: String,
-    notes: String
-})
+    title: "General Assembly",
+    description: "Located in Ponce City Market, GA is a school for Computer Science, Web Development and Design.",
+    positions: "Front-Line, T-A's, Instructor",
+    locations: "Atlanta, GA",
+    notes: "Applied on January 15th 2018"
+});
 
 const PositionsTest1 = new PositionsModel({
-    date: Date,
-    title: String,
-    Compensation: Number,
-    comments: String
+    date: Date.now,
+    title: "T.A.",
+    Compensation: 60000,
+    comments: "Recruiter seemed Receptive, Interview went well. Call back next week."
 })
 
 const BioTest1 = new BioModel ({
-    location: String,
-    img: Buffer, 
-    education: String,
-    experience: String,
-    description: String
+    name: "Kodi Bear Jenkins III",
+    location: "Greater Atlanta Area ",
+    img: "https://imgur.com/codypellom/gB10748Jh18.png", 
+    education: "Graduated from Georgia State University",
+    experience: "Graduated from General Assembly's WDI14",
+    description: "Atlanta, GA Web Developer and Graphic Designer. Self Taught and Educated in CS and Web Development."
 })
+
 
 
