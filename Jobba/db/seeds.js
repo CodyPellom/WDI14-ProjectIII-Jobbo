@@ -16,13 +16,6 @@ mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI)
 
 const db = mongoose.connection
-
-
-
-
-
-
-
 //Now set up the Promises as promises were recommended
 //to keep things from getting overly complex.
 
