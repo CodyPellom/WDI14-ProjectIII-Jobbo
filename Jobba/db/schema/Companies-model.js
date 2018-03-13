@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const Companies = new Schema({
+const CompaniesSchema = new Schema({
     date: { type: Date, default: Date.now },
     title: String,
     description: String,
@@ -12,3 +12,5 @@ const Companies = new Schema({
 
 
 });
+
+const CompaniesModel = mongoose.model('CompaniesModel', CompaniesSchema)
