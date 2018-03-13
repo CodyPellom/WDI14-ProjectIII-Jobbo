@@ -8,10 +8,10 @@ const CompaniesSchema = new Schema({
     description: String,
     positions: String,
     locations: String,
-    comments: String
+    notes: String
 
 
 });
 
-const CompaniesModel = mongoose.model('CompaniesModel', CompaniesSchema)
+const CompaniesModel = mongoose.model('CompaniesModel', CompaniesSchema);
 
