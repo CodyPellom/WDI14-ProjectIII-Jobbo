@@ -24,5 +24,30 @@ db.on('error', (err) => {
     console.log(err)
 })
 
+//Here is the dummy data that will be displayed on your appliation
+
+const CompaniesTest1 = new CompaniesModel({
+    date: Date.now,
+    title: String,
+    description: String,
+    positions: String,
+    locations: String,
+    notes: String
+})
+
+const PositionsTest1 = new PositionsModel({
+    date: Date,
+    title: String,
+    Compensation: Number,
+    comments: String
+})
+
+const BioTest1 = new BioModel ({
+    location: String,
+    img: Buffer, 
+    education: String,
+    experience: String,
+    description: String
+})
 
 
