@@ -1,3 +1,5 @@
+//Dependancies
+
 require('dotenv').config()
 const mongoose = require('mongoose');
 const express = require('express');
@@ -5,7 +7,7 @@ const app = express()
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 
-
+//Connect to Mongooser
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.Promise = global.Promise;
 
@@ -22,12 +24,13 @@ console.log('Connected to MongoDB')
 });
 
 
-
-app.use(logger('dev'));
+//MiddleWare
 app.use(bodyParser.json());
+app.use(express.static(`${__dirname}/client/build`))
 
-app.get('/', (req, res) => {
-    res.send("hello, wurld")
+//Setup our Routes ..
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/client/build/index.html')
 });
 
 const PORT = process.env.PORT || 3001 ;
