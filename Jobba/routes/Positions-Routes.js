@@ -5,7 +5,7 @@ const { PositionsModel } = require('../db/schema/Positions-model')
 
 // * async route method *
 //      index route:
-router.get('/:id', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const PositionsModel = await PositionsModel.find({})
         res.json(PositionsModel)
@@ -14,7 +14,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 //      show route:
-router.get('/', (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const PositionsModelId = req.params.id
         const PositionsModel = await PositionsModel.findById(PositionsModelId)
@@ -39,7 +39,8 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         const PositionsModelId = req.params.id
-        const updatedPositionsModel = await PositionsModel.findByIdAndUpdate(PositionsModelId, updatedPositionsModel)
+        const updatedPositionsModel = req.body
+        const savedPositionsModel = await PositionsModel.findByIdAndUpdate(PositionsModelId, updatedPositionsModel)
         res.json(savedPositionsModel)
     } catch (err) {
         console.log(err)
