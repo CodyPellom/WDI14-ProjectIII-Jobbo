@@ -51,5 +51,42 @@ const BioTest1 = new BioModel ({
     description: "Atlanta, GA Web Developer and Graphic Designer. Self Taught and Educated in CS and Web Development."
 })
 
+//Begin saving the dummyData
+CompaniesModel.remove().then(() => {
+    return CompaniesModel.insert([ CompaniesTest1 ])
+}).then(() => {
+    console.log('Saved CompaniesTest1')
+    db.close()
+}).catch((err) => {
+    console.log(err)
+    db.close()
+})
+
+
+PositionsModel.remove().then(() => {
+    return PositionsModel.insert([ PositionsTest1 ])
+}).then(() => {
+  console.log('Saved PositionsTest1')
+  db.close()
+}).catch((err) => {
+    console.log(err)
+    db.close()
+})
+
+
+BioModel.remove().then(() => {
+    return BioModel.insert([ BioTest1 ])
+}).then(() => {
+    console.log('Saved BioTest1')
+    db.close()
+}).catch((err) => {
+    console.log(err)
+    db.close()
+})
+
+
+
+
+
 
 
