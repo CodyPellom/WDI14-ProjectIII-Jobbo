@@ -38,7 +38,7 @@ const PositionsModel = require('./routes/Positions-Routes')
 app.use('/api/bio/:bioId/companies/positions', PositionsModel)
 
 //Setup our connection to react ..
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(__dirname + '/client/build/index.html')
 })
 
