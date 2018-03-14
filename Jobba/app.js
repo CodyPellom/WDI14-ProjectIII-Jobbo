@@ -15,11 +15,11 @@ mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;
 
-db.on('error', err => {
-    console.log(err)
+db.on('error', (err) => {
+    console.log('mongoose error: ', err)
     });
 
-db.on('open', () => {
+db.on('connected', () => {
 console.log('Connected to MongoDB')
 });
 
@@ -28,15 +28,8 @@ console.log('Connected to MongoDB')
 app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/client/build`))
 
-//Route references:
-const BioModel = require('./db/schema/Bio-model')
-const CompaniesModel = require('./db/schema/Companies-model')
-const PositionsModel = require('./db/schema/Positions-model')
+//set up routes from 'routes'
 
-
-app.use('/', BioModel)
-app.use('/', PositionsModel)
-app.use('/', CompaniesModel)
 
 //Setup our connection to react ..
 app.get('*', (req, res) => {
