@@ -33,9 +33,9 @@ app.use(bodyParser.json());
 const BioModel = require('./routes/Bio-Routes')
 app.use('/api/bio', BioModel)
 const CompaniesModel = require('./routes/Companies-Routes')
-app.use('/api/bio/:bioId/companies', CompaniesModel)
+app.use('/api/companies', CompaniesModel)
 const PositionsModel = require('./routes/Positions-Routes')
-app.use('/api/bio/:bioId/companies/positions', PositionsModel)
+app.use('/api/positions', PositionsModel)
 
 //Setup our connection to react ..
 app.get('/*', (req, res) => {

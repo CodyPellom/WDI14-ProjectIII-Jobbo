@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
 import BioView from './components/BioViewPage/BioView'
 import CompaniesView from './components/CompaniesViewPage/CompaniesView'
-import PositionsView from './components/PositionsViewPage'
+import PositionsView from './components/PositionsViewPage/PositionsView'
 import NavBar from './components/NavBar'
 
 

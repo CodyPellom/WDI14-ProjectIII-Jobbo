@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-const NavStyle = styled.div`
+const NavBarStyle = styled.div`
 display: flex;
 justify-content: space-around;
 padding: 5px;
@@ -17,11 +17,7 @@ class NavBar extends Component {
                 <h1>Jobba Navigation</h1>
                 <ul>
                     <li>
-                        <Link to="/">Home Page</Link>
-                    </li>
-                  
-                    <li>
-                        <Link to="/bio">Profile(Bio)</Link>
+                        <Link to="/">Your Bio</Link>
                     </li>
                     <li>
                         <Link to="/companies">Companies Listing</Link>
