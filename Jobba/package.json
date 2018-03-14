@@ -5,14 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "concurrently \"node app.js\"\"cd client && npm start\"",
+    "dev": "concurrently \"nodemon app.js\" \"cd ./client  && npm start \" ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "cd client && npm i && npm run build"
-
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codypellom/wdi14-projectiii-jobbo.git"
+    "url": "https://github.com/codypellom/wdi14-projectiii-jobbo.git"
   },
   "keywords": [
     "jobba"

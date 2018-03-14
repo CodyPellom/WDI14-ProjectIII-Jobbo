@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const CompaniesSchema = new Schema({
-    date: Date.now,
+    date: {
+        type: Date,
+        default: Date.now()
+    },
     title: String,
     description: String,
     positions: String,
