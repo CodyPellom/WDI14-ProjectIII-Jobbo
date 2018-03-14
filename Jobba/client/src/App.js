@@ -15,14 +15,15 @@ class App extends Component {
           <NavBar />
           <Switch>
 
+
+            <Route exact path="/" component={BioView} />
+            <Route path="/companies" component={CompaniesView} />
+            <Route path="/companies/positions" component={PositionsView} />
           </Switch>
-          <Route exact path="/" component={BioView} />
-          <Route path="/companies" component={CompaniesView} />
-          <Route path="/companies/positions" component={PositionsView}
-      </div>
+        </div>
       </Router>
-        );
-      }
-    }
-    
+    )
+  }
+}
+
 export default App;
