@@ -11,8 +11,6 @@ const bodyParser = require('body-parser');
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.Promise = global.Promise;
 
-
-
 const db = mongoose.connection;
 
 db.on('error', (err) => {
@@ -29,13 +27,19 @@ app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/client/build`))
 
 //set up routes from 'routes'
-
+const BioModel = require('./routes/Bio-Routes')
+app.use('/api/bio', BioModel)
+const CompaniesModel = require('./routes/Companies-Routes')
+app.use('/api/bio/:bioId/companies', CompaniesModel)
+const PositionsModel = require('./routes/Positions-Routes')
+app.use('/api/bio/:bioId/companies/positions')
 
 //Setup our connection to react ..
 app.get('*', (req, res) => {
     res.sendFile(__dirname + '/client/build/index.html')
 });
 
+//set up for Heroku to listen 
 const PORT = process.env.PORT || 3001 ;
 
 app.listen(PORT, () => {
