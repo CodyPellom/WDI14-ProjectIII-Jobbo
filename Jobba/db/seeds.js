@@ -47,7 +47,6 @@ CompaniesModel.remove().then(() => {
     const BioTest1 = new BioModel({
         name: "Kodi Bear Jenkins III",
         location: "Greater Atlanta Area ",
-        img: "https://imgur.com/codypellom/gB10748Jh18.png",
         education: "Graduated from Georgia State University",
         experience: "Graduated from General Assembly's WDI14",
         description: "Atlanta, GA Web Developer and Graphic Designer. Self Taught and Educated in CS and Web Development."
