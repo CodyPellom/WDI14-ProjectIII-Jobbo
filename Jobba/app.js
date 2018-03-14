@@ -28,7 +28,17 @@ console.log('Connected to MongoDB')
 app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/client/build`))
 
-//Setup our Routes ..
+//Route references:
+const BioModel = require('./db/schema/Bio-model')
+const CompaniesModel = require('./db/schema/Companies-model')
+const PositionsModel = require('./db/schema/Positions-model')
+
+
+app.use('/', BioModel)
+app.use('/', PositionsModel)
+app.use('/', CompaniesModel)
+
+//Setup our connection to react ..
 app.get('*', (req, res) => {
     res.sendFile(__dirname + '/client/build/index.html')
 });

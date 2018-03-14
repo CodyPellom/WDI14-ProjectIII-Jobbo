@@ -4,7 +4,11 @@
   "description": "Jobba is a MERN stack app that was created to help individuals new to the tech industry with job-hunting. Use Jobba to record companies of interest and positions applied for with ease. ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "concurrently \"node app.js\"\"cd client && npm start\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd client && npm i && npm run build"
+
   },
   "repository": {
     "type": "git",
@@ -20,11 +24,15 @@
   },
   "homepage": "https://github.com/codypellom/wdi14-projectiii-jobbo#readme",
   "dependencies": {
+    "async": "^2.6.0",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "mongoose": "^5.0.9",
     "morgan": "^1.9.0"
+  },
+  "engines": {
+    "node": "^9.7.0"
   }
 }
