@@ -9,9 +9,16 @@ import positions from './components/positions'
 class App extends Component {
   render() {
     return (
+      <Router>
       <div>
-        
+        <Switch>
+
+        </Switch>
+        <Route exact path="/" component={Bio}/>
+        <Route path="/:id" component={Companies}/>
+        <Route path="/"
       </div>
+      </Router>
     );
   }
 }
