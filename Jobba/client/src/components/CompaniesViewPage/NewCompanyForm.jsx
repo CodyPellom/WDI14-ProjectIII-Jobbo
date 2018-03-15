@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import { Component } from 'react';
+
 
 class NewCompanyForm extends Component {
     state = {
