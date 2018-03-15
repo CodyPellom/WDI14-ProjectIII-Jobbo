@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-
-
 class NewCompanyForm extends Component {
     state = {
         title: '',
@@ -11,7 +9,7 @@ class NewCompanyForm extends Component {
 
     handleChange = (event) => {
         const title = event.target.title
-        const newState = { ...this.state }
+        const newState = {...this.state}
         newState[title] = event.target.value
         this.setState(newState)
     }

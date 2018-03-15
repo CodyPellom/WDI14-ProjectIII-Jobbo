@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
 import BioView from './components/BioViewPage/BioView'
 import CompaniesView from './components/CompaniesViewPage/CompaniesView'
+import SingleCompany from './components/CompaniesViewPage/SingleCompany'
+import NewCompanyForm from './components/CompaniesViewPage/NewCompanyForm'
 import PositionsView from './components/PositionsViewPage/PositionsView'
 import NavBar from './components/NavBar'
 
@@ -14,11 +16,10 @@ class App extends Component {
         <div>
           <NavBar />
           <Switch>
-
-
-            <Route exact path="/" component={BioView} />
+            <Route exact path="/" component={NewCompanyForm} />
             <Route path="/companies" component={CompaniesView} />
-            <Route path="/companies/positions" component={PositionsView} />
+            <Route path="/positions" component={PositionsView} />
+
           </Switch>
         </div>
       </Router>
