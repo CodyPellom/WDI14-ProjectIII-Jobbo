@@ -17,13 +17,13 @@ class NavBar extends Component {
                 <h1>Jobba Navigation</h1>
                 <ul>
                     <li>
-                        <Link to="/">New Company</Link>
+                        <Link to="/BioView">Your Bio</Link>
                     </li>
                     <li>
-                        <Link to="/companies">Companies Listing</Link>
+                        <Link to="/CompaniesViewPage">Your Companies</Link>
                     </li>
                     <li>
-                        <Link to="/positions">Positions Listing</Link>
+                        <Link to="/PositionsViewPage">Your Positions</Link>
                     </li>
                 </ul>
             </NavBarStyle>
