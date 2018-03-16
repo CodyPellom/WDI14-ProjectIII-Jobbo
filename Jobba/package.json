@@ -24,6 +24,7 @@
   "homepage": "https://github.com/codypellom/wdi14-projectiii-jobbo#readme",
   "dependencies": {
     "async": "^2.6.0",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
     "dotenv": "^5.0.1",

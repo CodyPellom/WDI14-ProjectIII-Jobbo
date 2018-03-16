@@ -12,4 +12,4 @@ const BioSchema = new Schema({
 
 const BioModel = mongoose.model('BioModel', BioSchema);
 
-module.exports = { BioModel }
+module.exports = { BioModel, BioSchema }

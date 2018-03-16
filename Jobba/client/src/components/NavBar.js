@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+
 
 const NavBarStyle = styled.div`
 display: flex;
@@ -17,13 +17,13 @@ class NavBar extends Component {
                 <h1>Jobba Navigation</h1>
                 <ul>
                     <li>
-                        <Link to="/BioView">Your Bio</Link>
+                        <a href="/" conClick={this.props.getBios}>Jobba Home</a>
                     </li>
                     <li>
-                        <Link to="/CompaniesViewPage">Your Companies</Link>
+                        <a href="/bios/new">Create New Bio</a>
                     </li>
                     <li>
-                        <Link to="/PositionsViewPage">Your Positions</Link>
+                        <a href="/about">About Jobba</a>
                     </li>
                 </ul>
             </NavBarStyle>

@@ -23,7 +23,7 @@ CompaniesModel.remove().then(() => {
     //This is your dummy data that will be 
     //displayed on the application itself.
     const CompaniesTest1 = new CompaniesModel({
-        date: Date.now,
+        date:"03/16/2018",
         title: "General Assembly",
         description: "Located in Ponce City Market, GA is a school for Computer Science, Web Development and Design.",
         positions: "Front-Line, T-A's, Instructor",
@@ -35,7 +35,7 @@ CompaniesModel.remove().then(() => {
     //This is your dummy data that will be 
     //displayed on the application itself.
     const PositionsTest1 = new PositionsModel({
-        date: Date.now,
+        date: "03/16/2018",
         title: "T.A.",
         Compensation: 60000,
         comments: "Recruiter seemed Receptive, Interview went well. Call back next week."
@@ -54,5 +54,7 @@ CompaniesModel.remove().then(() => {
     return BioTest1.save()
 }).then(() => {
     db.close()
+}).then(()=>{
+    console.log("Saved")
 })
 

@@ -29,13 +29,15 @@ app.use(bodyParser.json());
 
 
 
+
+const BioRoute = require('./routes/Bio-Routes')
+const CompaniesRoute = require('./routes/Companies-Routes')
+const PositionsRoute = require('./routes/Positions-Routes')
 //set up routes from 'routes'
-const BioModel = require('./routes/Bio-Routes')
-app.use('/api/bio', BioModel)
-const CompaniesModel = require('./routes/Companies-Routes')
-app.use('/api/companies', CompaniesModel)
-const PositionsModel = require('./routes/Positions-Routes')
-app.use('/api/positions', PositionsModel)
+
+app.use('/api/bio', BioRoute)
+app.use('/api/companies', CompaniesRoute)
+app.use('/api/positions', PositionsRoute)
 
 //Setup our connection to react ..
 app.get('/*', (req, res) => {

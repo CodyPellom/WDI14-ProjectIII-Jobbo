@@ -3,63 +3,55 @@ const router = express.Router()
 
 const { BioModel } = require('../db/schema/Bio-model')
 
-// * async route method *
-//      index route:
-router.get('/', async (req, res) => {
-    try {
-        const BioModel = await BioModel.find({})
-        res.json(BioModel)
-    } catch (err) {
-        console.log(err)
-    }
+router.get("/", (req,res) => {
+    BioModel.find().then((bio) => {
+        res.send(bio)
+    })
 })
-//      show route:
-router.get('/:id', async (req, res) => {
-    try {
-        const BioModelId = req.params.id
-        const BioModel = await BioModel.findById(BioModelId)
-        res.json(BioModel)
-    } catch (err) {
-        console.log(err)
-        res.json(err)
-    }
+
+router.get("/:bioId", (req,res) => {
+    BioModel.findById(req.params.bioId)
+    .then((bio) => {
+        res.send(bio)
+    })
 })
-//      create route
-router.post('/', async (req, res) => {
-    try {
-        const newBioModel = req.body
-        const savedBioModel = await BioModel.create(newBioModel)
-        res.json(savedBioModel)
-    } catch (err) {
-        console.log(err)
-        res.status(500).json(err)
-    }
+
+router.post("/", (req, res) => {
+    const NewBio = new BioModel({
+        name: req.body.name,
+        location: req.body.location,
+        education: req.body.education,
+        experience: req.body.experience,
+        description: req.body.description
+        })
+
+        NewBio.save().then((savedBio) => {
+            res.redirect(`/api/bio/${savedBio._id}`)
+        })
+
 })
-//      update route
-router.put('/:id', async (req, res) => {
-    try {
-        const BioModelId = req.params.id
-        const updatedBioModel = req.body
-        const savedBioModel = await BioModel.findByIdAndUpdate(BioModelId, updatedBioModel)
-        res.json(savedBioModel)
-    } catch (err) {
-        console.log(err)
-        res.status(500).json(err)
-    }
+
+router.patch('/:bioId', (req, res) => {
+    BioModel.findByIdAndUpdate(req.params.bioId, {
+        name: req.body.name,
+        location: req.body.location,
+        education: req.body.education,
+        experience: req.body.experience,
+        description: req.body.description
+    },{new:true}
+).then((updatedBio) => {
+    res.redirect(`/api/bio/${updatedBio._id}`)
 })
-//      delete route
-router.delete('/:id', async (req, res) => {
-    try {
-        const BioModelId = req.params.id 
-        await BioModel.findByIdAndRemove(BioModelId)
-    res.json({
-        msg: 'Deleted'
-    }) 
-} catch (err) {
-    console.log(err)
-    res.status(500).json(err)
-}
 })
+
+router.delete('/:bioId', (req, res) => {
+    BioModel.findByIdAndRemove(req.params.bioId)
+    .then(() => {
+        res.redirect('/api/bio')
+    })
+})
+
+
 
 module.exports = router
 
