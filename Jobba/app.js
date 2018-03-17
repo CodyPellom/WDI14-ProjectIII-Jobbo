@@ -36,8 +36,8 @@ const PositionsRoute = require('./routes/Positions-Routes')
 //set up routes from 'routes'
 
 app.use('/api/bio', BioRoute)
-app.use('/api/companies', CompaniesRoute)
-app.use('/api/positions', PositionsRoute)
+app.use('/api/bio/:bioId/companies', CompaniesRoute)
+app.use('/api/bio/:bioId/positions', PositionsRoute)
 
 //Setup our connection to react ..
 app.get('/*', (req, res) => {

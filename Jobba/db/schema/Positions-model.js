@@ -12,4 +12,4 @@ const PositionsSchema = new Schema({
 //Compile model from schema!
 const PositionsModel = mongoose.model('PositionsModel', PositionsSchema)
 
-module.exports = { PositionsModel }
+module.exports = { PositionsModel, PositionsSchema }

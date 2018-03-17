@@ -1,64 +1,44 @@
 const express = require('express')
-const router = express.Router()
+const router = express.Router({mergeParams:true})
+const { BioModel } = require('../db/schema/Bio-model') 
 
 const { CompaniesModel } = require('../db/schema/Companies-model')
 
-// * async route method *
-//      index route:
-router.get('/', async (req, res) => {
-    try {
-        const CompaniesModel = await CompaniesModel.find({})
-        res.json(CompaniesModel)
-    } catch (err) {
+router.get('/', (req,res) => {
+    BioModel.findById(req.params.bioId).then((bio) => {
+        const companies = bio.companies
+        res.send(companies)
+    }).catch(err => {
         console.log(err)
-    }
+    })
 })
-//      show route:
-router.get('/:id', async (req, res) => {
-    try {
-        const CompaniesModelId = req.params.id
-        const CompaniesModel = await CompaniesModel.findById(CompaniesModelId)
-        res.json(CompaniesModel)
-    } catch (err) {
-        console.log(err)
-        res.json(err)
-    }
+
+router.post('/', (req, res) => {
+    BioModel.findById(req.params.bioId).then((bio) => {
+        const newCompany = new CompaniesModel({
+            date: req.body.date,
+            title: req.body.title,
+            description: req.body.description,
+            locations: req.body.locations,
+            notes: req.body.notes
+        })
+        bio.companies.push(newCompany)
+        return bio.save()
+
+    }).then((savedBio) => {
+        res.send(savedBio)
+    })
 })
-//      create route
-router.post('/', async (req, res) => {
-    try {
-        const newCompaniesModel = req.body
-        const savedCompaniesModel = await CompaniesModel.create(newCompaniesModel)
-        res.json(savedCompaniesModel)
-    } catch (err) {
-        console.log(err)
-        res.status(500).json(err)
-    }
+
+router.delete('/:id', (req, res) => {
+    BioModel.findById(req.params.bioId).then((bio) => {
+        bio.companies.id(req.params.id).remove()
+        return bio.save()
+    }).then((savedBio) => {
+        res.send(savedBio)
+    })
 })
-//      update route
-router.put('/:id', async (req, res) => {
-    try {
-        const CompaniesModelId = req.params.id
-        const updatedCompaniesModel = req.body
-        const savedCompaniesModel = await CompaniesModel.findByIdAndUpdate(CompaniesModelId, updatedCompaniesModel)
-        res.json(savedCompaniesModel)
-    } catch (err) {
-        console.log(err)
-        res.status(500).json(err)
-    }
-})
-//      delete route
-router.delete('/:id', async (req, res) => {
-    try {
-        const CompaniesModelId = req.params.id 
-        await CompaniesModel.findByIdAndRemove(CompaniesModelId)
-    res.json({
-        msg: 'Deleted'
-    }) 
-} catch (err) {
-    console.log(err)
-    res.status(500).json(err)
-}
-})
+
+
 
 module.exports = router
