@@ -14,7 +14,7 @@ class App extends Component {
         <div>
           <NavBar/>
           <Switch>
-           
+            <Route path='/CompaniesView' component={CompaniesView} />
             <Route path='/NewCompanyForm' component={NewCompanyForm} />
             <Route path='/About' component={About} />
             <Route path='/BioView' component={BioView}/>

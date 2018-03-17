@@ -28,7 +28,7 @@ class NavBar extends Component {
                         <a href="/BioView" onClick={BioView}>Create a Bio</a>
                     </li>
                     <li>
-                        <a href="/CompaniesView" onClick={CompaniesView}>Create a Company List</a>
+                        <a href="/CompaniesView" onClick={CompaniesView}>Create a Company</a>
                     </li>
                     <li>
                         <a href="/About" onClick={About}>About Jobba</a>
